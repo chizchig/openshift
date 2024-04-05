@@ -1,0 +1,20 @@
+apiVersion: openshiftapps.openshift.io/v1
+kind: ConfigDeployment
+metadata:
+  name: app2
+  namespace: app2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: app2
+        image: shadowhub/beer_factory_app
+        ports:
+        - containerPort: 8000

@@ -1,0 +1,119 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app1-dev
+  namespace: argocd
+spec:
+  project: dev
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app1/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+--- 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app1-prod
+  namespace: argocd
+spec:
+  project: prod
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app1/overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+--- 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app1-stage
+  namespace: argocd
+spec:
+  project: stage
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app1/overlays/stage
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2-dev
+  namespace: argocd
+spec:
+  project: stage
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app2/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+--- 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2-prod
+  namespace: argocd
+spec:
+  project: prod
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app2/overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      
+--- 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2-stage
+  namespace: argocd
+spec:
+  project: stage
+  source:
+    repoURL: https://github.com/myorg/myrepo.git
+    targetRevision: HEAD
+    path: apps/app2/overlays/stage
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

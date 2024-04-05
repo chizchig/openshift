@@ -1,0 +1,20 @@
+apiVersion: openshiftapps.openshift.io/v1
+kind: ConfigDeployment
+metadata:
+  name: app1
+  namespace: app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: shadowhub/blog
+        ports:
+        - containerPort: 3000
