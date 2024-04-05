@@ -1,0 +1,25 @@
+# resources/resource-quotas.yaml
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+  namespace: app1
+spec:
+  hard:
+    requests.cpu: "2"
+    limits.cpu: "4"
+    requests.memory: 8Gi
+    limits.memory: 128Gi
+
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+  namespace: app2
+spec:
+  hard:
+    requests.cpu: "1"
+    limits.cpu: "2"
+    requests.memory: 12Gi
+    limits.memory: 128Gi

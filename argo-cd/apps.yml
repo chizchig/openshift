@@ -26,7 +26,7 @@ metadata:
 spec:
   project: prod
   source:
-    repoURL: https://github.com/myorg/myrepo.git
+    repoURL: https://github.com/chizchig/openshift.git
     targetRevision: HEAD
     path: apps/app1/overlays/prod
   destination:
@@ -46,7 +46,7 @@ metadata:
 spec:
   project: stage
   source:
-    repoURL: https://github.com/myorg/myrepo.git
+    repoURL: https://github.com/chizchig/openshift.git
     targetRevision: HEAD
     path: apps/app1/overlays/stage
   destination:
@@ -67,7 +67,7 @@ metadata:
 spec:
   project: stage
   source:
-    repoURL: https://github.com/myorg/myrepo.git
+    repoURL: https://github.com/chizchig/openshift.git
     targetRevision: HEAD
     path: apps/app2/overlays/dev
   destination:
@@ -87,7 +87,7 @@ metadata:
 spec:
   project: prod
   source:
-    repoURL: https://github.com/myorg/myrepo.git
+    repoURL: https://github.com/chizchig/openshift.git
     targetRevision: HEAD
     path: apps/app2/overlays/prod
   destination:
@@ -97,7 +97,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-      
+
 --- 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -107,7 +107,7 @@ metadata:
 spec:
   project: stage
   source:
-    repoURL: https://github.com/myorg/myrepo.git
+    repoURL: https://github.com/chizchig/openshift.git
     targetRevision: HEAD
     path: apps/app2/overlays/stage
   destination:
