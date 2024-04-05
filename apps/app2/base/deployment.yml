@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: app2
-        image: shadowhub/beer_factory_app
+        image: shadowhub/raz
         ports:
         - containerPort: 8000
