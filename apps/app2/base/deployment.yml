@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: app2
-        image: shadowhub/raz
+        image: shadowhub/blog
         ports:
-        - containerPort: 8000
+        - containerPort: 3000
